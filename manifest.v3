@@ -8,9 +8,11 @@
   <value name="name">ConnectorTestOnCRTProject</value>
   <record name="startup_services" javaclass="com.wm.util.Values">
     <null name="wm.cloudstreams.{0}.{1}.plm:registerProvider"/>
+    <null name="wm.cloudstreams.connectortestoncrt.ConnectorTestOnCRTProject.plm:registerProvider"/>
   </record>
   <record name="shutdown_services" javaclass="com.wm.util.Values">
     <null name="wm.cloudstreams.{0}.{1}.plm:unregisterProvider"/>
+    <null name="wm.cloudstreams.connectortestoncrt.ConnectorTestOnCRTProject.plm:unregisterProvider"/>
   </record>
   <null name="replication_services"/>
   <record name="requires" javaclass="com.wm.util.Values">
@@ -20,13 +22,13 @@
   <null name="listACL"/>
   <value name="webappLoad">yes</value>
   <value name="reloadWithDependentPackage">yes</value>
-  <value name="build">4</value>
+  <value name="build">5</value>
   <null name="description"/>
   <value name="created_date">11-03-2026 08:51:28 GMT</value>
   <null name="extendedProperties"/>
   <null name="target_server_version"/>
   <value name="isProjectPackage">true</value>
-  <value name="lastUpdated">2026-03-11T09:56:57.030959192Z</value>
+  <value name="lastUpdated">2026-03-11T10:08:56.33379552Z</value>
   <value name="wmProjectId">fl1aa394cefe07410396dc94cab03dbb54</value>
   <value name="creator">Amrendra Kumar</value>
   <null name="publisher"/>
