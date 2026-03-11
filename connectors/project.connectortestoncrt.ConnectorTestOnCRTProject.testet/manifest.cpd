@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Connector-Key: project.connectortestoncrt.ConnectorTestOnCRTProject.test
+ et
+Connector-Name: testet
+Connector-Version: 1.0
+Connector-Handler: com.webmethods.cloudstreams.metadata.handler.rest.Res
+ tConnectorMetadataHandler
+Connector-State: Enabled
+Connector-Bundle-Vendor: IBM
+Connector-Bundle-Version: 1.0
+Connector-Group-ID: project.connectortestoncrt.ConnectorTestOnCRTProject
+ .testet
+Connector-Group-Version: null
+Project: 
+
+Name: User-Defined
+Application-Version: 2.0
+applicationImageID: 
+
