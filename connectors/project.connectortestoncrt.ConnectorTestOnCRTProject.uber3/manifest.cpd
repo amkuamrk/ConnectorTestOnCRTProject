@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Connector-Key: project.connectortestoncrt.ConnectorTestOnCRTProject.uber
+ 3
+Connector-Name: uber3
+Connector-Version: 1.0
+Connector-Handler: com.webmethods.cloudstreams.metadata.handler.rest.Res
+ tConnectorMetadataHandler
+Connector-State: Enabled
+Connector-Bundle-Vendor: IBM
+Connector-Bundle-Version: 1.0
+Connector-Image: uber3.png
+Connector-Group-ID: project.connectortestoncrt.ConnectorTestOnCRTProject
+ .uber3
+Connector-Group-Version: 1.0
+Project: 
+
+Name: User-Defined
+Application-Version: 2.0
+applicationImageID: uber3.png
+
