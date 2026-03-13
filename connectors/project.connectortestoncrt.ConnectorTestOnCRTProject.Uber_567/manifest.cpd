@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Connector-Key: project.connectortestoncrt.ConnectorTestOnCRTProject.Uber
+ _567
+Connector-Name: Uber_567
+Connector-Version: 1.0
+Connector-Handler: com.webmethods.cloudstreams.metadata.handler.rest.Res
+ tConnectorMetadataHandler
+Connector-State: Enabled
+Connector-Bundle-Vendor: IBM
+Connector-Bundle-Version: 1.0
+Connector-Image: Uber_567.png
+Connector-Group-ID: project.connectortestoncrt.ConnectorTestOnCRTProject
+ .Uber
+Connector-Group-Version: 67
+Project: 
+
+Name: User-Defined
+Application-Version: 2.0
+applicationImageID: Uber_567.png
+
