@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Connector-Key: project.connectortestoncrt.ConnectorTestOnCRTProject.marc
+ h_17
+Connector-Name: march_17
+Connector-Version: 1.0
+Connector-Handler: com.webmethods.cloudstreams.metadata.handler.rest.Res
+ tConnectorMetadataHandler
+Connector-State: Enabled
+Connector-Bundle-Vendor: IBM
+Connector-Bundle-Version: 1.0
+Connector-Image: march_17.png
+Connector-Group-ID: project.connectortestoncrt.ConnectorTestOnCRTProject
+ .march
+Connector-Group-Version: 7
+Project: 
+
+Name: User-Defined
+Application-Version: 2.0
+applicationImageID: march_17.png
+
