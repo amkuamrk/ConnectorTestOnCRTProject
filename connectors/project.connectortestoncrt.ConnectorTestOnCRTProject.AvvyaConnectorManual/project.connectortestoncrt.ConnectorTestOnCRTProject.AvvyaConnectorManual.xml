@@ -37,14 +37,6 @@
                         <response name="test" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes:test" excludeRoot="true" dimension="0"/>
                     </responses>
                 </resource>
-                <resource method="GET" path="/" type="SIMPLE" tag="r3" name="getr3" displayName="getr3">
-                    <description>test</description>
-                    <mappings/>
-                    <parameters/>
-                    <responses>
-                        <response name="test" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes:test" excludeRoot="true" dimension="0"/>
-                    </responses>
-                </resource>
             </resources>
         </service>
     </services>
