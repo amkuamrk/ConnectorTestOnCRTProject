@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <rest-connector xmlns="http://www.webmethods.com/cloudstreams/metadata/handler/model" id="project.connectortestoncrt.ConnectorTestOnCRTProject.swgaaramu" version="1.0" name="swgaaramu" displayName="swgaaramu">
+    <description>Test description</description>
     <connections>
         <connection type="sagcloud" name="swgaaramuconnection" displayName="swgaaramuconnection">
             <groups>
                 <group type="connection" name="connection" displayName="Connection">
                     <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
                     <fields>
-                        <field isRequired="false" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://api.uber.com/v1" name="cn.providerUrl" displayName="Server URL">
+                        <field isRequired="true" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://api.uber.com/v1" name="cn.providerUrl" displayName="Server URL">
                             <description>The native provider endpoint target for the connection configuration</description>
                         </field>
                     </fields>
                 </group>
-                <group type="credentials" name="credentials" displayName="Credentials">
+                <group type="oauth_v20" name="oauth_v20" displayName="OAuth V2.0">
+                    <description>Define configurations needed for the OAuth version 2.0 authentication scheme.</description>
                     <fields/>
                 </group>
             </groups>
