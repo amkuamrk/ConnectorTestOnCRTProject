@@ -119,26 +119,22 @@
                 <resource method="GET" path="/history" type="SIMPLE" tag="User" name="getHISTORY" displayName="User Activity">
                     <description>The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.&lt;br&gt;&lt;br&gt;The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.</description>
                     <mappings>
-                        <map isRequired="true" context="OUT" name="contentTypeHeader" displayName="Content-Type">
+                        <map isRequired="true" context="OUT" name="Content-Type">
                             <source type="LITERAL">application/json</source>
                             <target type="HEADER">Content-Type</target>
                         </map>
-                        <map isRequired="true" context="IN" name="acceptHeader" displayName="Accept">
+                        <map context="IN" name="Accept">
                             <source type="LITERAL">application/json</source>
                             <target type="HEADER">Accept</target>
                         </map>
                     </mappings>
                     <parameters>
-                        <parameter name="offset" style="QUERYSTRING_PARAM">
-                            <description>Offset the list of returned results by this amount. Default is zero.</description>
-                        </parameter>
-                        <parameter name="limit" style="QUERYSTRING_PARAM">
-                            <description>Number of items to retrieve. Default is 5, maximum is 100.</description>
-                        </parameter>
+                        <parameter name="offset" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="limit" style="QUERYSTRING_PARAM" dataType="String"/>
                     </parameters>
                     <responses>
-                        <response name="get200historyResponse" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.finalchangesforswagger.finalchangesforswaggerservice.doctypes:Activities" excludeRoot="true" dimension="0"/>
-                        <response name="getdefaulthistoryResponse" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.finalchangesforswagger.finalchangesforswaggerservice.doctypes:Error" excludeRoot="true" dimension="0"/>
+                        <response name="Activities" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.finalchangesforswagger.finalchangesforswaggerservice.doctypes:Activities" excludeRoot="true" dimension="0"/>
+                        <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.finalchangesforswagger.finalchangesforswaggerservice.doctypes:Error" excludeRoot="true" dimension="0"/>
                     </responses>
                 </resource>
             </resources>
