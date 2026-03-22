@@ -31,24 +31,6 @@
                         <target type="HEADER">Accept</target>
                     </map>
                 </mappings>
-                <resource method="GET" path="/me" type="SIMPLE" tag="User" name="getME" displayName="User Profile">
-                    <description>The User Profile endpoint returns information about the Uber user that has authorized with the application.</description>
-                    <mappings>
-                        <map isRequired="true" context="OUT" name="contentTypeHeader" displayName="Content-Type">
-                            <source type="LITERAL">application/json</source>
-                            <target type="HEADER">Content-Type</target>
-                        </map>
-                        <map isRequired="true" context="IN" name="acceptHeader" displayName="Accept">
-                            <source type="LITERAL">application/json</source>
-                            <target type="HEADER">Accept</target>
-                        </map>
-                    </mappings>
-                    <parameters/>
-                    <responses>
-                        <response name="get200meResponse" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Profile" excludeRoot="true" dimension="0"/>
-                        <response name="getdefaultmeResponse" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
-                    </responses>
-                </resource>
                 <resource method="GET" path="/estimates/time" type="SIMPLE" tag="Estimates" name="getTIME" displayName="Time Estimates">
                     <description>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</description>
                     <mappings>
@@ -139,6 +121,24 @@
                     <responses>
                         <response name="get200historyResponse" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Activities" excludeRoot="true" dimension="0"/>
                         <response name="getdefaulthistoryResponse" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/me" type="SIMPLE" tag="User" name="getME" displayName="User Profile">
+                    <description>The User Profile endpoint returns information about the Uber user that has authorized with the application.</description>
+                    <mappings>
+                        <map isRequired="true" context="OUT" name="Content-Type" displayName="Content-Type">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Content-Type</target>
+                        </map>
+                        <map context="IN" name="Accept" displayName="Accept">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Accept</target>
+                        </map>
+                    </mappings>
+                    <parameters/>
+                    <responses>
+                        <response name="Profile" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Profile" excludeRoot="true" dimension="0"/>
+                        <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
                     </responses>
                 </resource>
             </resources>
