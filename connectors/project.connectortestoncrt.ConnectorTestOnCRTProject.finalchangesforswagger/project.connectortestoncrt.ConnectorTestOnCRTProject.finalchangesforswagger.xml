@@ -123,14 +123,14 @@
                             <source type="LITERAL">application/json</source>
                             <target type="HEADER">Content-Type</target>
                         </map>
-                        <map isRequired="true" context="IN" name="Accept">
+                        <map context="IN" name="Accept">
                             <source type="LITERAL">application/json</source>
                             <target type="HEADER">Accept</target>
                         </map>
                     </mappings>
                     <parameters>
-                        <parameter name="offset" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
-                        <parameter name="limit" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="offset" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="limit" style="QUERYSTRING_PARAM" dataType="String"/>
                     </parameters>
                     <responses>
                         <response name="Activities" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.finalchangesforswagger.finalchangesforswaggerservice.doctypes:Activities" excludeRoot="true" dimension="0"/>
