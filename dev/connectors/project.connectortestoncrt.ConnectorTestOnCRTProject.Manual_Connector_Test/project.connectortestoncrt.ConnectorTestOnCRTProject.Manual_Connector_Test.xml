@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rest-connector xmlns="http://www.webmethods.com/cloudstreams/metadata/handler/model" id="project.connectortestoncrt.ConnectorTestOnCRTProject.Manual_Connector_Test" version="1.0" name="Manual_Connector_Test" displayName="Manual_Connector_Test">
+    <description>Amku Test </description>
+    <connections>
+        <connection type="sagcloud" name="manualConnectorTestconnection" displayName="manualConnectorTestconnection">
+            <groups>
+                <group type="connection" name="connection" displayName="Connection">
+                    <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
+                    <fields>
+                        <field isRequired="true" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://google.com" name="cn.providerUrl" displayName="Server URL">
+                            <description>The native provider endpoint target for the connection configuration</description>
+                        </field>
+                    </fields>
+                </group>
+                <group type="credentials" name="credentials" displayName="Credentials">
+                    <description>Define configurations needed for the username and password based authentication to the SaaS provider.</description>
+                    <fields/>
+                </group>
+            </groups>
+        </connection>
+    </connections>
+    <services>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="manualconnectortestservice" displayName="manualconnectortestservice">
+            <documentModel packageName="." nsName="project.connectortestoncrt.ConnectorTestOnCRTProject.Manual_Connector_Test.manualconnectortestservice.doctypes" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/estimates/time" type="SIMPLE" tag="Estimates" name="getTIME" displayName="getTIME">
+                    <description>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</description>
+                    <mappings>
+                        <map isRequired="true" context="OUT" name="Content-Type" displayName="Content-Type">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Content-Type</target>
+                        </map>
+                        <map isRequired="true" context="IN" name="Accept" displayName="Accept">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Accept</target>
+                        </map>
+                    </mappings>
+                    <parameters>
+                        <parameter name="start_latitude" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="start_longitude" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="customer_uuid" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="product_id" style="QUERYSTRING_PARAM" dataType="String"/>
+                    </parameters>
+                    <responses>
+                        <response name="Product" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swgaaramu.swgaaramuservice.doctypes:Product" excludeRoot="true" dimension="1"/>
+                        <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swgaaramu.swgaaramuservice.doctypes:Error" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/estimates/price" type="SIMPLE" tag="Estimates" name="getPRICE" displayName="getPRICE">
+                    <description>The Price Estimates endpoint returns an estimated price range for each product offered at a given location. The price estimate is provided as a formatted string with the full price range and the localized currency symbol.&lt;br&gt;&lt;br&gt;The response also includes low and high estimates, and the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for situations requiring currency conversion. When surge is active for a particular product, its surge_multiplier will be greater than 1, but the price estimate already factors in this multiplier.</description>
+                    <mappings>
+                        <map isRequired="true" context="IN" name="header_example" displayName="header_example">
+                            <source type="LITERAL"/>
+                            <target type="HEADER">header_example</target>
+                        </map>
+                        <map isRequired="true" context="OUT" name="Content-Type" displayName="Content-Type">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Content-Type</target>
+                        </map>
+                        <map isRequired="true" context="IN" name="Accept" displayName="Accept">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Accept</target>
+                        </map>
+                    </mappings>
+                    <parameters>
+                        <parameter name="start_latitude" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="start_longitude" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="end_latitude" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="end_longitude" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="customtocheckoperation" style="QUERYSTRING_PARAM" dataType="string"/>
+                    </parameters>
+                    <responses>
+                        <response name="PriceEstimate" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swgaaramu.swgaaramuservice.doctypes:PriceEstimate" excludeRoot="true" dimension="1"/>
+                        <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swgaaramu.swgaaramuservice.doctypes:Error" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+    </services>
+</rest-connector>
