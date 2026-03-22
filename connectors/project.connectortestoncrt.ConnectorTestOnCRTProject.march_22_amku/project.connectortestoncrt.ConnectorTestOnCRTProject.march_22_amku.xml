@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rest-connector xmlns="http://www.webmethods.com/cloudstreams/metadata/handler/model" id="project.connectortestoncrt.ConnectorTestOnCRTProject.march_22_amku" version="1.0" name="march_22_amku" displayName="march_22_amku">
+    <description>etst</description>
+    <connections>
+        <connection type="sagcloud" name="march22Amkuconnection" displayName="march22Amkuconnection">
+            <groups>
+                <group type="connection" name="connection" displayName="Connection">
+                    <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
+                    <fields>
+                        <field isRequired="true" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://google.com" name="cn.providerUrl" displayName="Server URL">
+                            <description>The native provider endpoint target for the connection configuration</description>
+                        </field>
+                    </fields>
+                </group>
+                <group type="credentials" name="credentials" displayName="Credentials">
+                    <description>Define configurations needed for the username and password based authentication to the SaaS provider.</description>
+                    <fields/>
+                </group>
+            </groups>
+        </connection>
+    </connections>
+    <services>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="march22amkuservice" displayName="march22amkuservice">
+            <documentModel packageName="." nsName="project.connectortestoncrt.ConnectorTestOnCRTProject.march_22_amku.march22amkuservice.doctypes" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/" type="SIMPLE" tag="r1" name="getr1" displayName="getr1">
+                    <description>descritpion</description>
+                    <mappings>
+                        <map isRequired="true" context="IN" name="header1">
+                            <source type="LITERAL">h1</source>
+                            <target type="HEADER">header1</target>
+                        </map>
+                        <map isRequired="true" context="OUT" name="outh1">
+                            <source type="LITERAL">test</source>
+                            <target type="HEADER">outh1</target>
+                        </map>
+                    </mappings>
+                    <parameters>
+                        <parameter name="p1" style="QUERYSTRING_PARAM" defaultValue="test"/>
+                    </parameters>
+                    <responses>
+                        <response name="amkuTest1" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.march_22_amku.march22amkuservice.doctypes:amkuTest1" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+    </services>
+</rest-connector>
