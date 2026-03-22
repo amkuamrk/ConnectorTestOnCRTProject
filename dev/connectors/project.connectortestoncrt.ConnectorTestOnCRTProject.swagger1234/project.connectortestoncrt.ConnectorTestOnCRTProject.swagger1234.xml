@@ -31,37 +31,6 @@
                         <target type="HEADER">Accept</target>
                     </map>
                 </mappings>
-                <resource method="GET" path="/estimates/time" type="SIMPLE" tag="Estimates" name="getTIME" displayName="Time Estimates">
-                    <description>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</description>
-                    <mappings>
-                        <map isRequired="true" context="OUT" name="contentTypeHeader" displayName="Content-Type">
-                            <source type="LITERAL">application/json</source>
-                            <target type="HEADER">Content-Type</target>
-                        </map>
-                        <map isRequired="true" context="IN" name="acceptHeader" displayName="Accept">
-                            <source type="LITERAL">application/json</source>
-                            <target type="HEADER">Accept</target>
-                        </map>
-                    </mappings>
-                    <parameters>
-                        <parameter name="start_latitude" isRequired="true" style="QUERYSTRING_PARAM">
-                            <description>Latitude component of start location.</description>
-                        </parameter>
-                        <parameter name="start_longitude" isRequired="true" style="QUERYSTRING_PARAM">
-                            <description>Longitude component of start location.</description>
-                        </parameter>
-                        <parameter name="customer_uuid" style="QUERYSTRING_PARAM">
-                            <description>Unique customer identifier to be used for experience customization.</description>
-                        </parameter>
-                        <parameter name="product_id" style="QUERYSTRING_PARAM">
-                            <description>Unique identifier representing a specific product for a given latitude &amp; longitude.</description>
-                        </parameter>
-                    </parameters>
-                    <responses>
-                        <response name="get200timeResponse" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Product" excludeRoot="true" dimension="1"/>
-                        <response name="getdefaulttimeResponse" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
-                    </responses>
-                </resource>
                 <resource method="GET" path="/estimates/price" type="SIMPLE" tag="Estimates" name="getPRICE" displayName="null">
                     <description>The Price Estimates endpoint returns an estimated price range for each product offered at a given location. The price estimate is provided as a formatted string with the full price range and the localized currency symbol.&lt;br&gt;&lt;br&gt;The response also includes low and high estimates, and the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for situations requiring currency conversion. When surge is active for a particular product, its surge_multiplier will be greater than 1, but the price estimate already factors in this multiplier.</description>
                     <mappings>
@@ -138,6 +107,29 @@
                     <parameters/>
                     <responses>
                         <response name="Profile" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Profile" excludeRoot="true" dimension="0"/>
+                        <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/estimates/time" type="SIMPLE" tag="Estimates" name="getTIME" displayName="Time Estimates">
+                    <description>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</description>
+                    <mappings>
+                        <map isRequired="true" context="OUT" name="Content-Type" displayName="Content-Type">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Content-Type</target>
+                        </map>
+                        <map isRequired="true" context="IN" name="Accept" displayName="Accept">
+                            <source type="LITERAL">application/json</source>
+                            <target type="HEADER">Accept</target>
+                        </map>
+                    </mappings>
+                    <parameters>
+                        <parameter name="start_latitude" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="start_longitude" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="customer_uuid" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                        <parameter name="product_id" isRequired="true" style="QUERYSTRING_PARAM" dataType="String"/>
+                    </parameters>
+                    <responses>
+                        <response name="Product" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Product" excludeRoot="true" dimension="1"/>
                         <response name="Error" code="100-199,201-599" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.swagger1234.swagger1234service.doctypes:Error" excludeRoot="true" dimension="0"/>
                     </responses>
                 </resource>
