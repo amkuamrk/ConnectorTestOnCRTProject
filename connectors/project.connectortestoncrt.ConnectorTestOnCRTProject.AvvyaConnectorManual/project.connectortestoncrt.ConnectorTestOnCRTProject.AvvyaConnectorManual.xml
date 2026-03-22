@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <rest-connector xmlns="http://www.webmethods.com/cloudstreams/metadata/handler/model" id="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual" version="1.0" name="AvvyaConnectorManual" displayName="AvvyaConnectorManual">
-    <description>AvvyaConnectorManual</description>
+    <description>upate connector 3</description>
     <connections>
         <connection type="sagcloud" name="avvyaConnectorManualconnection" displayName="avvyaConnectorManualconnection">
             <groups>
@@ -33,13 +33,6 @@
                     <parameters>
                         <parameter name="p1" style="QUERYSTRING_PARAM" defaultValue="test"/>
                     </parameters>
-                    <responses>
-                        <response name="test" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes:test" excludeRoot="true" dimension="0"/>
-                    </responses>
-                </resource>
-                <resource method="GET" path="/" type="SIMPLE" tag="r2" name="getr2" displayName="getr2">
-                    <mappings/>
-                    <parameters/>
                     <responses>
                         <response name="test" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes:test" excludeRoot="true" dimension="0"/>
                     </responses>
