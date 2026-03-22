@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rest-connector xmlns="http://www.webmethods.com/cloudstreams/metadata/handler/model" id="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual" version="1.0" name="AvvyaConnectorManual" displayName="AvvyaConnectorManual">
+    <description>AvvyaConnectorManual</description>
+    <connections>
+        <connection type="sagcloud" name="avvyaConnectorManualconnection" displayName="avvyaConnectorManualconnection">
+            <groups>
+                <group type="connection" name="connection" displayName="Connection">
+                    <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
+                    <fields>
+                        <field isRequired="true" isEncrypted="false" isHidden="false" isArray="false" defaultValue="https://google.com" name="cn.providerUrl" displayName="Server URL">
+                            <description>The native provider endpoint target for the connection configuration</description>
+                        </field>
+                    </fields>
+                </group>
+                <group type="credentials" name="credentials" displayName="Credentials">
+                    <description>Define configurations needed for the username and password based authentication to the SaaS provider.</description>
+                    <fields/>
+                </group>
+            </groups>
+        </connection>
+    </connections>
+    <services>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="avvyaconnectormanualservice" displayName="avvyaconnectormanualservice">
+            <documentModel packageName="." nsName="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/" type="SIMPLE" tag="Resource1" name="getResource1" displayName="getResource1">
+                    <mappings>
+                        <map isRequired="true" context="IN" name="h1">
+                            <source type="LITERAL">g1</source>
+                            <target type="HEADER">h1</target>
+                        </map>
+                    </mappings>
+                    <parameters>
+                        <parameter name="p1" style="QUERYSTRING_PARAM" defaultValue="test"/>
+                    </parameters>
+                    <responses>
+                        <response name="test" code="200" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="project.connectortestoncrt.ConnectorTestOnCRTProject.AvvyaConnectorManual.avvyaconnectormanualservice.doctypes:test" excludeRoot="true" dimension="0"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+    </services>
+</rest-connector>
